@@ -1,0 +1,81 @@
+#==========================================================
+#Lecture 1 notes by Apna College Data types and variables
+#==========================================================
+
+a = 10
+b = 7
+print(a+b)
+print(a-b)
+print(a%b)#remainder
+print(a*b)
+print(a**2)#stars ke baad ki value power bann jati hai
+print(a==b)#relational operator compares 2 values
+print(a/b)
+print(a//b)#floor division
+print(a!=b)#relational opertor
+print(a>=b)#relational
+print(a<b)#relational 
+a+=6 #assignment operators which adds 6 to value of a
+print(a)
+#logical operators- not,and,or (boolean values) answer True or False
+print(not True)#false
+print(not False)#True
+print(not (a>b))#False due to vice versa done by "not"
+val1 = True 
+val2 = True
+print("and operator result =", val1 and val2)
+val3 = False
+print("and operater result =", val1 and val3)
+#and operater means if both values are true then, i am true but if false then,false
+#or operator means if any value is true then, true but both false then false only 
+#when both false for example
+print("or operator =", val1 or val3)#1 was true only
+val4 = False
+print("or operator", val3 or val4)#both were false
+print("or operator",(a==b) or (a>b))
+print("or operaor", (val4) or (a<b))
+#type conversion 
+#its two types
+#1.conversion is done automatically
+#2. casting is done mannually
+#sting mei float add nhi kar sakte
+first_number = float(input("enter the first num = "))
+second_number = float(input("enter the second num = "))
+sum = first_number + second_number
+print ("product =", first_number*second_number)
+print("sum =",sum)
+#ab type conversion pe wapis ajate hai
+#type casting hogi 
+c = int("2")#int ne string ko balance kar diya
+d = 4.25
+print(c+d)
+#input
+name = input("Enter your name;")
+print("Welcome",name)
+age = float(input("Enter your age = "))
+while True:
+    age_input = input("Enter your age = ")
+    
+    # Check if the input is numeric, has at most 2 digits, and is <= 95
+    if age_input.isdigit() and len(age_input) <= 2 and int(age_input) <= 95:
+        age = float(age_input)
+        break
+    else:
+        print("Invalid input! Age must be a number with at most 2 digits and no more than 95.")
+
+print("You are: ", age)
+val= input("enter your class")
+print(type(val),val)#value hamesha string bann jayegi chahe integer kyu na ho
+val5 = int(input("Enter some value"))#integer value only due to int
+print(type(val5),val5)
+#lecture2
+#now it is saved in next file
+
+
+
+
+
+
+
+
+
