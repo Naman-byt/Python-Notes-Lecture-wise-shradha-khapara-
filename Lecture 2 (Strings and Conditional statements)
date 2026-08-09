@@ -1,0 +1,68 @@
+# ==========================================
+# CHAPTER 2: STRINGS & CONDITIONAL STATEMENTS
+# ==========================================
+
+# ------------------------------------------
+# 1. STRING CREATION & ESCAPE SEQUENCES
+# ------------------------------------------
+# Strings can be created using single, double, or triple quotes.
+str1 = 'Hello World'
+str2 = "Python Programming"
+str3 = """This is a multiline string"""
+
+# Escaping single quotes using double quotes [00:01:59]
+# Useful when text contains apostrophes like "Apna College's tutorial"
+app_str = "This is Apna College's Python tutorial"
+print("1. String Literal:", app_str)
+
+
+# ------------------------------------------
+# 2. STRING OPERATIONS
+# ------------------------------------------
+# Concatenation (joining strings)
+first_name = "Apna"
+last_name = "College"
+full_name = first_name + " " + last_name
+print("2. Concatenation:", full_name)
+
+# String Length
+print("Length of full_name:", len(full_name))
+
+# Indexing (Accessing individual characters)
+# Indices start at 0
+print("First character:", full_name[0])
+
+# Slicing (Extracting a substring: str[start_index : end_index])
+print("Sliced Substring:", full_name[0:4])  # Output: Apna
+
+
+# ------------------------------------------
+# 3. CONDITIONAL STATEMENTS (if-elif-else)
+# ------------------------------------------
+# Control flow based on conditions [00:00:15]
+marks = 85
+
+print("\n--- Grading System ---")
+if marks >= 90:
+    print("Grade: A")
+elif marks >= 75:
+    print("Grade: B")
+elif marks >= 60:
+    print("Grade: C")
+else:
+    print("Grade: D")
+
+
+# ------------------------------------------
+# 4. PRACTICE EXERCISE: MULTIPLE CHECKER [00:53:55]
+# ------------------------------------------
+# Checking if a number is a multiple using the modulus operator (%)
+# A number is a multiple if number % base == 0
+
+num = 21  # You can change this test number or use int(input()) in OneCompiler
+
+print("\n--- Multiple Check ---")
+if num % 7 == 0:
+    print(f"{num} is a Multiple of 7")
+else:
+    print(f"{num} is NOT a Multiple of 7")
