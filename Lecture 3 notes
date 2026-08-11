@@ -1,0 +1,183 @@
+#=============================================================================
+# LECTURE 3: LISTS & TUPLES IN PYTHON
+# Source Reference: Shradha Khapra (Apna College)
+# Target Environment: OneCompiler (Python 3)
+#=============================================================================
+
+# ==========================================
+# SECTION 1: LISTS IN PYTHON
+# ==========================================
+# Key Concept (Slide Data):
+# - List is a built-in data type that stores a set/collection of values.
+# - Unlike Arrays in C++/Java (which require the same data type), 
+#   Python Lists can store elements of DIFFERENT data types together.
+# - LISTS ARE MUTABLE (Values can be changed in-place).
+
+# --- 1. Creating and Printing Lists ---
+marks = [94.4, 87.5, 95.2, 66.4, 45.1]
+print("Marks List:", marks)
+print("Type:", type(marks))      # Output: <class 'list'>
+print("Length:", len(marks))      # Output: 5
+
+# --- 2. Heterogeneous Data in Lists ---
+student = ["Karan", 95, 19, "Delhi"]  # Name (str), Marks (int), Age (int), Location (str)
+print("Student Details:", student)
+
+# --- 3. Indexing & Mutability ---
+# Index starts at 0 up to len-1
+print("First Element (Index 0):", student[0])
+
+# Mutability Demonstration (Changing value in-place)
+student[0] = "Arjun"             # Allowed in Lists! (Unlike Strings)
+print("Updated Student List:", student)
+
+# Note: Accessing out of bound index will throw 'IndexError: list index out of range'
+
+
+# ==========================================
+# SECTION 2: LIST SLICING
+# ==========================================
+# Syntax: list_name[starting_idx : ending_idx]
+# Rule: Ending index is NOT included.
+
+marks_list = [85, 94, 76, 63, 48]
+
+print("Slice [1:4]:", marks_list[1:4])   # Indices 1, 2, 3 -> [94, 76, 63]
+print("Slice [:3]:", marks_list[:3])     # Same as [0:3] -> [85, 94, 76]
+print("Slice [2:]:", marks_list[2:])     # Same as [2:len] -> [76, 63, 48]
+
+# Negative Indexing Slicing
+# -1 is the last element, -2 is second last, etc.
+print("Negative Slice [-3:-1]:", marks_list[-3:-1])  # [76, 63]
+
+
+# ==========================================
+# SECTION 3: LIST METHODS
+# ==========================================
+# Note: Most list methods mutate (modify) the original list and RETURN NONE.
+
+num_list = [2, 1, 3]
+
+# 1. append(val) -> Adds one element at the end
+num_list.append(4)
+print("After Append(4):", num_list)  # [2, 1, 3, 4]
+
+# 2. sort() -> Sorts list in ascending order
+num_list.sort()
+print("After Sort (Ascending):", num_list)  # [1, 2, 3, 4]
+
+# 3. sort(reverse=True) -> Sorts list in descending order
+num_list.sort(reverse=True)
+print("After Sort (Descending):", num_list) # [4, 3, 2, 1]
+
+# Sorting Strings / Characters
+char_list = ["d", "e", "a", "c", "b"]
+char_list.sort()
+print("Sorted Characters:", char_list)      # ['a', 'b', 'c', 'd', 'e']
+
+# 4. reverse() -> Reverses the order of elements
+num_list.reverse()
+print("After Reverse():", num_list)
+
+# 5. insert(idx, val) -> Inserts element 'val' at specified 'idx'
+num_list.insert(1, 5)
+print("After Insert 5 at Index 1:", num_list)
+
+# 6. remove(val) -> Removes the FIRST occurrence of 'val'
+sample_list = [2, 1, 3, 1]
+sample_list.remove(1)
+print("After Removing first '1':", sample_list)  # [2, 3, 1]
+
+# 7. pop(idx) -> Removes element at specified index 'idx'
+sample_list.pop(2)
+print("After Pop at Index 2:", sample_list)
+
+
+# ==========================================
+# SECTION 4: TUPLES IN PYTHON
+# ==========================================
+# Key Concept (Slide Data):
+# - Tuple is a built-in data type that lets us create IMMUTABLE sequences.
+# - Values CANNOT be altered, added, or removed once initialized.
+# - Created using parentheses `()` instead of square brackets `[]`.
+
+tup = (2, 1, 3, 1)
+print("Tuple:", tup)
+print("Type:", type(tup))        # Output: <class 'tuple'>
+
+# Indexing works same as lists
+print("Element at Index 0:", tup[0])
+
+# Mutability Check:
+# tup[0] = 5  # Throws 'TypeError: tuple object does not support item assignment'
+
+# --- Important Edge Case: Single Element Tuple ---
+tup_single_wrong = (1)          # Python treats this as an INTEGER!
+print("Wrong Single Tuple Type:", type(tup_single_wrong))  # <class 'int'>
+
+tup_single_correct = (1,)       # Comma is MANDATORY for single element tuple
+print("Correct Single Tuple Type:", type(tup_single_correct)) # <class 'tuple'>
+
+# --- Tuple Slicing ---
+print("Tuple Slice [1:3]:", tup[1:3]) # (1, 3)
+
+# --- Tuple Methods ---
+# 1. index(el) -> Returns index of first occurrence of element
+print("First Index of '1':", tup.index(1))  # Index 1
+
+# 2. count(el) -> Counts total occurrences of element
+print("Count of '1':", tup.count(1))        # 2
+
+
+# ==========================================
+# SECTION 5: PRACTICE QUESTIONS & SOLUTIONS
+# ==========================================
+
+print("\n--- PRACTICE QUESTION 1 ---")
+# Q1: Ask the user to enter names of their 3 favorite movies & store them in a list.
+
+movies = []
+# Method: Prompting user input and appending to list
+movies.append(input("Enter 1st favorite movie: "))
+movies.append(input("Enter 2nd favorite movie: "))
+movies.append(input("Enter 3rd favorite movie: "))
+print("Your Favorite Movies List:", movies)
+
+
+print("\n--- PRACTICE QUESTION 2 ---")
+# Q2: Write a program to check if a list contains a palindrome of elements.
+# (Hint: Use copy() method)
+# Concept: A palindrome reads the same backwards and forwards (e.g., [1, 2, 3, 2, 1] or ["m", "a", "m"])
+
+list_to_check = [1, 2, 3, 2, 1]
+
+# Step 1: Make a copy of the list
+list_copy = list_to_check.copy()
+
+# Step 2: Reverse the copied list
+list_copy.reverse()
+
+# Step 3: Compare original list with reversed copy
+if list_copy == list_to_check:
+    print("Result: The list is a Palindrome")
+else:
+    print("Result: The list is NOT a Palindrome")
+
+
+print("\n--- PRACTICE QUESTION 3 ---")
+# Q3: Count the number of students with grade "A" in the given tuple:
+# ("C", "D", "A", "A", "B", "B", "A")
+
+grades_tuple = ("C", "D", "A", "A", "B", "B", "A")
+count_A = grades_tuple.count("A")
+print("Number of students with Grade 'A':", count_A)
+
+
+print("\n--- PRACTICE QUESTION 4 ---")
+# Q4: Store the above values in a list and sort them from "A" to "D".
+
+grades_list = ["C", "D", "A", "A", "B", "B", "A"]
+grades_list.sort() # Sorts in ascending alphabetical order
+print("Sorted Grades (A to D):", grades_list)
+
+
