@@ -1,0 +1,100 @@
+"""
+==============================================================================
+               LECTURE 4 NOTES: DICTIONARIES & SETS IN PYTHON
+               Course: Python Full Course (Shradha Khapra)
+==============================================================================
+
+1. DICTIONARIES (dict)
+----------------------
+- Used to store data in key-value pairs.
+- Properties: Unordered, Mutable (changeable), Unique Keys (no duplicates allowed).
+- Key Lookup Time Complexity: O(1) [Hash Table based].
+
+2. SETS (set)
+-------------
+- Unordered collection of unique elements.
+- Properties: Duplicates are automatically removed.
+- Elements must be IMMUTABLE (int, float, string, tuple).
+- Cannot contain mutable types like lists or dictionaries.
+==============================================================================
+"""
+
+print("=== PART 1: DICTIONARY DEMO ===")
+
+# Creating & Accessing Dictionaries
+info = {
+    "name": "IITian Aspirant",
+    "subjects": ["Physics", "Chemistry", "Maths"],
+    "age": 14,
+    "is_pass": True,
+    "marks": 95.5
+}
+
+print("Name:", info["name"])
+print("Subjects:", info["subjects"])
+
+# Modifying & Adding Key-Value Pairs
+info["name"] = "Future AI Engineer"
+print("Updated Info:", info)
+
+# Nested Dictionaries
+student = {
+    "name": "Rahul",
+    "subjects": {
+        "phy": 97,
+        "chem": 95,
+        "math": 99
+    }
+}
+print("Math Marks:", student["subjects"]["math"])
+
+# Important Dictionary Methods
+print("\n--- Dict Methods ---")
+print("Keys:", list(student.keys()))
+print("Values:", list(student.values()))
+print("Items:", list(student.items()))
+print("Safe Access (.get):", student.get("name"))
+
+
+print("\n" + "="*40 + "\n")
+
+
+print("=== PART 2: SETS DEMO ===")
+
+# Creating Sets (Duplicates auto-removed)
+num_set = {1, 2, 3, 4, 2, 2, "Hello"}
+print("Unique Set:", num_set)
+
+# Empty Set Initialization
+empty_dict = {}       # Creates a dict!
+empty_set = set()     # Correct way to create empty set
+print("Type of empty_set:", type(empty_set))
+
+# Set Methods
+empty_set.add(10)
+empty_set.add(20)
+empty_set.add(30)
+print("After add():", empty_set)
+
+# Set Union & Intersection
+set1 = {1, 2, 3}
+set2 = {2, 3, 4}
+print("Union:", set1.union(set2))            # {1, 2, 3, 4}
+print("Intersection:", set1.intersection(set2)) # {2, 3}
+
+
+print("\n" + "="*40 + "\n")
+
+
+print("=== PART 3: SOLVED PRACTICE PROBLEMS ===")
+
+# Problem 1: Store 9 and 9.0 separately in a set
+# Trick: 9 == 9.0 is True in Python, so use Tuples with Type Identifiers!
+tricky_set = {("float", 9.0), ("int", 9)}
+print("Storing 9 and 9.0 separately:", tricky_set)
+
+# Problem 2: Unique Classrooms Count
+subjects_list = {"python", "java", "C++", "python", "javascript", "java", "python"}
+print("Classrooms required for unique subjects:", len(subjects_list))
+
+print("\n--- Revision Complete! ---")
